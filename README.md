@@ -2,10 +2,9 @@
 
 
 /* 
-				CREDITS TO WYNN
-				Discord Name and tag:Mystø#2364
-				SA-MP PH Discord: https://discord.gg/hp5kPKv8tg
-				PINOY FREE SA:MP DC:  https://discord.gg/XVnwcnjAZD
+				CREDITS TO STEWART
+				Discord Name and tag: Stewart#8221
+				Alcazar City RP: https://discord.gg/aVE4dM87Ut
 */
 
 
