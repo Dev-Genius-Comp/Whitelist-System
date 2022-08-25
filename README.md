@@ -2,23 +2,23 @@
 
 
 /* 
-				CREDITS TO STEWART
-				Discord Name and tag: Stewart#8221
-				Alcazar City RP: https://discord.gg/aVE4dM87Ut
+CREDITS TO STEWART
+Discord Name and tag: Stewart#8221
+Alcazar City RP: https://discord.gg/aVE4dM87Ut
 */
 
 
 // Search: case THREAD_PROCESS_LOGIN: then lagay mo to sa baba nung kapag nagkakamali yung player about sa password nya:
-else if(!cache_get_field_content_int(0, "locked"))
+```else if(!cache_get_field_content_int(0, "locked"))
          	{
           		SCM(extraid, COLOR_LIGHTRED, "** This account is not whitelsted. Contact us "SERVER_URL" to put your account in the whitelist.");
             	SAM(COLOR_YELLOW, "AdmWarning: %s tried to login with not whitelist.", GetRPName(extraid));
              	KickPlayer(extraid);
-            }
+            }```
 //P.S. Kapag meron nang ganito sa gm nyo lagyan nyo nalang ng exlamation point before cache_get_field_content_int
 
 // Search for CMD:banip(playerid, params[]) then lagay mo to sa baba:
-CMD:whitelist(playerid, params[])
+```CMD:whitelist(playerid, params[])
 {
 	if(PlayerInfo[playerid][pAdmin] < 2 && PlayerInfo[playerid][pHelper] < 2)
 	{
@@ -30,9 +30,9 @@ CMD:whitelist(playerid, params[])
  		SCM(playerid, COLOR_WHITE, "* Offline: /oaddwhitelist, /oremovewhitelist.");
 	}
 	return 1;
-}
+}```
 
-CMD:oaddwhitelist(playerid, params[])
+```CMD:oaddwhitelist(playerid, params[])
 {
 	new username[MAX_PLAYER_NAME];
 
@@ -48,9 +48,9 @@ CMD:oaddwhitelist(playerid, params[])
 	mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "SELECT locked FROM users WHERE username = '%e'", username);
 	mysql_tquery(connectionID, queryBuffer, "OnAdminLockAccount", "is", playerid, username);
 	return 1;
-}
+}```
 
-CMD:oremovewhitelist(playerid, params[])
+```CMD:oremovewhitelist(playerid, params[])
 {
 	new username[MAX_PLAYER_NAME];
 
@@ -66,9 +66,9 @@ CMD:oremovewhitelist(playerid, params[])
 	mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "SELECT uid FROM users WHERE username = '%e' AND locked = 1", username);
 	mysql_tquery(connectionID, queryBuffer, "OnAdminUnlockAccount", "is", playerid, username);
 	return 1;
-}
+}```
 
-CMD:addwhitelist(playerid, params[])
+```CMD:addwhitelist(playerid, params[])
 {
 	new id[MAX_PLAYER_NAME];
 
@@ -84,9 +84,9 @@ CMD:addwhitelist(playerid, params[])
 	mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "SELECT uid FROM users WHERE id = '%e' AND locked = 1", id);
 	mysql_tquery(connectionID, queryBuffer, "OnAdminLockAccount", "is", playerid, id);
 	return 1;
-}
+}```
 
-CMD:removewhitelist(playerid, params[])
+```CMD:removewhitelist(playerid, params[])
 {
 	new id[MAX_PLAYER_NAME];
 
@@ -102,11 +102,11 @@ CMD:removewhitelist(playerid, params[])
 	mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "SELECT uid FROM users WHERE id = '%e' AND locked = 1", id);
 	mysql_tquery(connectionID, queryBuffer, "OnAdmiUnlockAccount", "is", playerid, id);
 	return 1;
-}
+}```
 
 // search: forward OnAdminChangeName(playerid, targetid, name[]); then lagay mo to sa taas:
 
-forward OnAdminLockAccount(playerid, username[]);
+```forward OnAdminLockAccount(playerid, username[]);
 public OnAdminLockAccount(playerid, username[])
 {
     if(!cache_get_row_count(connectionID))
@@ -138,4 +138,4 @@ public OnAdminUnlockAccount(playerid, username[])
 	    SAM(COLOR_LIGHTRED, "AdmCmd: %s has unwhitelist %s's account.", GetRPName(playerid), username);
 	    Log_Write("log_admin", "%s (uid: %i) unwhitelist %s's account.", GetPlayerNameEx(playerid), PlayerInfo[playerid][pID], username);
 	}
-}
+}```
